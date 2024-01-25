@@ -1,2 +1,2 @@
-PyQt5==5.15
+PyQt5==5.15.9
 pyqt5-tools
