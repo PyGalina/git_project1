@@ -1,17 +1,17 @@
 import sys
 import sqlite3
 
-from PyQt5 import uic
 from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget, QTableWidgetItem, QMessageBox
 from PyQt5.QtSql import QSqlDatabase, QSqlTableModel
+from main_f import Ui_MainWindow
+from addEditCoffeeForm import Ui_Form
 
-
-class MyCoffee(QMainWindow):
+class MyCoffee(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi('main.ui', self)
+        self.setupUi(self)
         db = QSqlDatabase.addDatabase('QSQLITE')
-        db.setDatabaseName('coffee.sqlite')
+        db.setDatabaseName('data/coffee.sqlite')
         db.open()
         self.model = QSqlTableModel(self, db)
         self.runbtn.clicked.connect(self.run)
@@ -27,11 +27,11 @@ class MyCoffee(QMainWindow):
         self.view.setModel(self.model)
 
 
-class EditForm(QWidget):
+class EditForm(QWidget, Ui_Form):
     def __init__(self, *args):
         super().__init__()
-        uic.loadUi('addEditCoffeeForm.ui', self)
-        self.con = sqlite3.connect("coffee.sqlite")
+        self.setupUi(self)
+        self.con = sqlite3.connect("data/coffee.sqlite")
         self.editButton.clicked.connect(self.update_result)
         self.tableWidget.itemChanged.connect(self.item_changed)
         self.pushButton_2.clicked.connect(self.save_results)
@@ -71,7 +71,6 @@ class EditForm(QWidget):
             que += ", ".join([f"{key}='{self.modified.get(key)}'"
                               for key in self.modified.keys()])
             que += "WHERE name_sort = ?"
-            #  print(que)
             cur.execute(que, (self.textEdit.text(),))
             self.con.commit()
             self.modified.clear()
@@ -96,7 +95,6 @@ class EditForm(QWidget):
             que += ",".join([f"'{self.modified.get(key)}'"
                              for key in self.modified.keys()])
             que += ')'
-            #  print(que)
             cur.execute(que)
             self.con.commit()
             self.modified.clear()
