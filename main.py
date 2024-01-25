@@ -18,14 +18,14 @@ class MyCoffee(QMainWindow):
         self.editbtn.clicked.connect(self.open_edit)
 
     def open_edit(self):
-        self.editForm = EditForm(self)
-        self.editForm.show()
-
+        self.editform = EditForm(self)
+        self.editform.show()
 
     def run(self):
         self.model.setTable('coffee')
         self.model.select()
         self.view.setModel(self.model)
+
 
 class EditForm(QWidget):
     def __init__(self, *args):
@@ -54,7 +54,8 @@ class EditForm(QWidget):
             return
         self.tableWidget.setColumnCount(len(result[0]))
         self.titles = [description[0] for description in cur.description]
-        self.tableWidget.setHorizontalHeaderLabels(['ID', 'Название', 'Спень обжарки', 'Молотый/в зернах', 'Описание', 'Цена', 'Объем'])
+        self.tableWidget.setHorizontalHeaderLabels(
+            ['ID', 'Название', 'Спень обжарки', 'Молотый/в зернах', 'Описание', 'Цена', 'Объем'])
         for i, elem in enumerate(result):
             for j, val in enumerate(elem):
                 self.tableWidget.setItem(i, j, QTableWidgetItem(str(val)))
@@ -70,7 +71,7 @@ class EditForm(QWidget):
             que += ", ".join([f"{key}='{self.modified.get(key)}'"
                               for key in self.modified.keys()])
             que += "WHERE name_sort = ?"
-            print(que)
+            #  print(que)
             cur.execute(que, (self.textEdit.text(),))
             self.con.commit()
             self.modified.clear()
@@ -93,12 +94,13 @@ class EditForm(QWidget):
             que += ", ".join([f"{key}" for key in self.modified.keys()])
             que += ') VALUES ('
             que += ",".join([f"'{self.modified.get(key)}'"
-                            for key in self.modified.keys()])
+                             for key in self.modified.keys()])
             que += ')'
-            print(que)
+            #  print(que)
             cur.execute(que)
             self.con.commit()
             self.modified.clear()
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
