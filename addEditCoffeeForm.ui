@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1118</width>
+    <height>491</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Редактирование БД</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>10</y>
+     <width>151</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Введите название кофе</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="editButton">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>70</y>
+     <width>101</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Найти</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_2">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>400</y>
+     <width>111</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Редактировать</string>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="tableWidget">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>110</y>
+     <width>841</width>
+     <height>271</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="textEdit">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>30</y>
+     <width>561</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_3">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>70</y>
+     <width>171</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Создать новый элемент</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_4">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>400</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Добавить</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>890</x>
+     <y>30</y>
+     <width>201</width>
+     <height>331</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <strikeout>false</strikeout>
+    </font>
+   </property>
+   <property name="tabletTracking">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Для редактирования существующей записи сначала нажать кнопку &quot;Найти&quot;.  После редактирования нажать кнопку &quot;Редактировать&quot;. Для создания новой записи нажать кнопку  &quot;Создать новый элемент&quot;, внести информацию в талицу (ID вносить не нужно) и нажать кнопку &quot;Добавить&quot;</string>
+   </property>
+   <property name="textFormat">
+    <enum>Qt::RichText</enum>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignJustify|Qt::AlignVCenter</set>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
